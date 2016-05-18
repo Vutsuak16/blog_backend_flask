@@ -1,0 +1,915 @@
+/*! HTML5 Boilerplate v5.0.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers:
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+
+
+body
+{
+	font-family: 'Open Sans', sans-serif;
+	background-color:#f4f5f6;
+	
+}
+
+
+
+
+/*
+ * Header
+ */
+
+.navbar-toggle
+{
+	margin-top: 23px;
+}
+.navbar-default 
+{
+    background-color: #fff;
+    border-color: #E7E7E7;
+    height: 90px;
+    transition: all 350ms ease-in;
+    -webkit-transition: all 350ms ease-in;
+    -moz-transition: all 350ms ease-in;
+    -o-transition: all 350ms ease-in;
+}
+#logo 
+{
+    padding: 36px 8px 66px 8px;
+    font-size: 316%;
+    margin-left: 6px;
+    font-family: BlurLight;
+    background-color: #95BD31;
+    background: linear-gradient(45deg, #8AB71D 50%, #95BD31 50%);
+    background: -webkit-linear-gradient(45deg, #8AB71D 50%, #95BD31 50%);
+    background: -moz-linear-gradient(45deg, #8AB71D 50%, #95BD31 50%);
+    background: -o-linear-gradient(45deg, #8AB71D 50%, #95BD31 50%);
+    color: #fff;
+    font-weight: 100;
+    top: 0;
+    left: 0px;
+    margin-top: 6px;
+}
+
+.navbar .nav 
+{
+    position: relative;
+    left: 0px;
+    display: block;
+    float: left;
+    /* margin: 30px 10px 0px 0px; */
+    font-family: phags;
+    text-transform: uppercase;
+        margin-top: 21px;
+}
+
+.loading-gif 
+{
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    top: -19px;
+    z-index: -1;
+    display: block !important;
+    position: absolute;
+    top: 84px;
+}
+
+.loading-gif #color-bars 
+{
+    width: 100%;
+}
+.loading-gif ul 
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.loading-gif #color-bars li 
+{
+    float: left;
+    display: block;
+    width: 16.666%;
+    height: 5px;
+}
+.loading-gif #color-bars li#color-1 
+{
+    background: #e82627;
+}
+.loading-gif #color-bars li#color-2 {
+    background: #dbdbd9;
+
+}
+.loading-gif #color-bars li#color-4 {
+    background: #f4ec32;
+}
+.loading-gif #color-bars li#color-5 {
+    background: #90d4df;
+}
+.loading-gif #color-bars li#color-9 {
+    background: #e3ecd1;
+}
+.loading-gif #color-bars li#color-6 {
+    background: #414143;
+}
+/*
+ * footer
+ */
+#f 
+{
+    background-color: #2f3238;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 15px;
+}
+#f p 
+{
+    color: #818181;
+    font-size: 14px;
+}
+.links
+{
+	margin-top: 100px;
+}
+.links > a 
+{
+    text-decoration: none;
+    color: #818181;
+    font-size: 14px;
+}
+.btn-top 
+{
+	display: none!important;
+    height: 50px;
+    width: 50px;
+    font-size: 15px;
+    color: #96989b;
+    background-color: #27292e;
+    border: none;
+    margin-top: 100px;
+}
+
+
+
+
+.icon-set
+{
+	margin-top: 26px;
+}
+
+.width-right
+{
+	float:right;
+}
+
+.width
+{
+	  width: 20px;
+  height: 5px;
+  background-color: #515151;
+  float: left;
+  margin-top: 39px;
+  margin-right: 13px;
+	}
+
+.icon-box
+{
+	display: inline-block;
+	background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	padding: 21px;
+	transition: background-color 0.2s ease;
+}
+
+.icon-box-dark
+{
+	display: inline-block;
+	background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	padding: 21px;
+	transition: background-color 0.2s ease;
+}
+
+.icon-set img
+{
+	width:40px;
+}
+
+.idea
+{
+	text-align: center;
+	color:#515151;
+}
+
+.idea h2
+{
+	font-size:22px;
+}
+
+.idea p
+{
+	font-size:16px;
+}
+
+.article
+{
+	background-color:white;
+}
+
+article .fa
+{
+	margin-right: 9px;
+	color:white;
+	font-size:14px;
+}
+
+.highlight-heading-red
+{
+	background-color:#dd4b39;
+	padding: 5px 15px;
+	text-align: center;
+	color: white;
+}
+
+.highlight-heading-blue
+{
+	background-color:#009aae;
+	padding: 5px 15px;
+	text-align: center;
+	color: white;
+}
+
+.article{
+	margin-top:48px;
+}
+
+.article .desc
+{
+	padding: 21px;
+	color:#7c7c7c;
+	font-size:12px;
+}
+
+.tag-fav
+{
+	margin-top: 48px;
+}
+
+.tag-fav img
+{
+	width:30px;
+}
+
+ul
+{
+	padding:0px;
+	list-style:none;
+	float: right;
+}
+
+.tag-fav ul li
+{
+	float: left;
+	margin-right: 13px;
+	background-color:#838383;
+	border-radius: 2px;
+	padding: 3px 8px;
+	color: #fefeff;
+	font-size: 13px;
+}
+
+.idea-sketches
+{
+	margin-top:48px;
+}
+
+.idea-sketches div div
+{
+	background-color:white;
+	height:60px;
+}
+.collaborate
+{
+	border-bottom: 4px solid #009aae;
+	padding: 16px;
+	margin: 0;
+	text-align: center;
+	font-weight: bold;
+	cursor:pointer;
+}
+
+.research
+{
+	
+	padding: 16px;
+	margin: 0;
+	text-align: center;
+	font-weight: bold;
+	cursor:pointer;
+}
+
+input[type="text"], textarea
+{
+	margin-top: 20px;
+	border: 1px solid #eaedf2!important;
+}
+
+.btn-white
+{
+	border-color: #009aae;
+	color: #009aae;
+	border-radius: 3px;	
+	text-decoration: none;
+	transition: background-color 0.2s ease;
+	margin-top: 20px;
+	float: right;
+	margin-bottom: 20px;
+}
+
+.btn-white:hover
+{
+	background-color: #009aae;
+	color:white;
+}
+
+.article-short
+{
+	margin-top: 4px;
+	background-color:white;
+	padding: 20px;
+}
+
+.author,.title
+{
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.date
+{
+	font-weight:lighter;
+	font-size:10px;
+}
+
+.journals
+{
+	border-bottom: 0px solid rgb(237, 237, 237);
+}
+
+.journals img
+{
+	padding: 29px;
+}
+
+.journals .desc
+{
+	font-size:12px;
+}
+
+.sectionals
+{
+	font-size:11px;
+	color:#009aae;
+}
+
+.sectionals .fa
+{
+	margin-right:4px;
+	cursor:pointer!important;
+}
+
+
+
+.view-more
+{
+	 float:left;
+	 padding:5px;
+}
+
+.likes,.comments
+{
+	float: right;
+	padding: 5px;
+}
+
+
+.name
+{
+	background-color: white;
+	padding-top: 60px;
+	text-align: center;
+	color:#505050;
+	padding-bottom: 2px;
+	margin-top: 20px;
+}
+
+.main
+{
+	font-size: 20px;
+	margin-top:0px;
+}
+
+.job
+{
+	font-size: 14px;
+}
+
+.job .fa
+{
+	margin-right:7px;
+	color:#009aae;
+}
+
+.circle
+{
+	position: absolute;
+	width: 128px;
+	height:128px;
+	top: 62px;
+	margin-left: -64px;
+	left: 50%;
+	background-color: rgb(225, 225, 225);
+	border-radius: 50%;
+}
+
+.progress-chart
+{
+	font-size: 19px;
+	color: rgb(118, 117, 117);
+	background-color: white;
+	padding: 34px;
+}
+
+.progress-chart .progress-box
+{
+	padding-bottom:15px;
+}
+
+.progress-percent
+{
+	color: black;
+	font-size: 29px;
+}
+
+.idea-sharing
+{
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	padding: 20px 10px;
+}
+
+.shared-member
+{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 1px solid rgb(162, 162, 162);
+}
+
+.idea-sharing p
+{
+	border-bottom: 1px solid rgb(228, 228, 228);
+	padding: 10px;
+	font-size: 20px;
+	color: rgb(155, 155, 155);
+}
+
+.fa-plus
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -5px;
+	margin-top: -6px;
+}
+
+.status
+{
+	background-color:white;
+}
+
+.status-container
+{
+	padding: 20px 40px;
+	color: rgb(176, 176, 176);
+	text-align: center;
+}
+.status p .fa
+{
+	margin-right: 6px;
+}
+
+.result
+{
+	color:#ff6161;
+	font-size:19px;
+}
+
+
+
+
+
+.research-output
+{
+	display:none;
+	transition: all 0.2s ease;
+}
+.research-section
+{
+	margin-top:20px;
+	padding: 36px;
+}
+
+.research-section h3
+{
+	color: #009aae;
+}
+
+.research-section p
+{
+	color: rgb(151, 151, 151);
+}
+
+.input-box
+{
+	padding:0px;
+}
+
+.research-inputs .fa-link
+{
+	position: absolute;
+	top: 29px;
+	right: 23px;
+	color: rgba(191, 191, 191, 0.46);
+	font-size: 18px;
+}
+
+.btn-highlight
+{
+	background-color: #009aae;
+	color: white;
+	margin-right: 10px;
+}
+
+.btn-highlight:hover
+{
+	background-color: white;
+	color: #009aae;
+}
+
+.img-upload
+{
+	border: 1px solid rgb(209, 209, 209);
+	text-align: center;
+	margin: 20px 5px;
+}
+
+.img-upload .fa-cloud-upload
+{
+	font-size: 81px;
+	color: rgb(233, 233, 233);
+	padding: 45px 0px 20px 0px;
+	cursor:pointer;
+}
+
+.img-upload input[type=file]
+{
+	opacity: 0;
+	position: absolute;
+	top: 18%;
+	left: 44%;
+	cursor: pointer;
+	height: 83px;
+	width: 83px;
+}
+
+
+#uploadPreview
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@media screen and (max-width: 1200px){
+		.width {
+		  width: 10px;
+		  height: 5px;
+		  background-color: #515151;
+		  float: left;
+		  margin-top: 25px;
+		  margin-left: 33px;
+		}
+}
+@media screen and (max-width: 693px){
+	.market-survey
+	{
+		text-align:center;
+	}
+	.market-survey h3
+	{
+		width:100%;
+	}
+	.market-survey .btn-white
+	{
+		float:none;
+	}
+	
+}
+@media screen and (max-width: 767px){
+		.navbar-default .navbar-collapse
+		{
+			background-color: white;
+		}
+	}
+@media screen and (max-width: 991px){
+		.width {
+			display:none
+		}
+		.width-right {
+			display:none
+		}
+		.icon-set{
+			text-align:center;
+		}
+		.icon-box{
+			margin-bottom: 8px;
+		}
+		.idea-sketches div div{
+			margin-bottom: 3px;
+		}
+		.input{
+			padding: 20px 20px 60px 20px;
+		}
+		.article-short {
+			padding: 60px 20px;
+		}
+		.fav{
+			padding-bottom:15px;
+		}
+		.profile-image{
+			margin-bottom:15px;
+		}
+}

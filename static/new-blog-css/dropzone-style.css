@@ -1,0 +1,86 @@
+/*
+ * The MIT License
+ * Copyright (c) 2012 Matias Meno <m@tias.me>
+ */
+.dropzone, .dropzone * 
+{
+  box-sizing: border-box; 
+}
+
+.dropzone {
+	position: relative; 
+	border: 2px dashed #0087F7;
+	border-radius: 5px;
+	background: white;
+	padding: 54px 54px;
+	cursor: pointer;
+}
+.dropzone .dz-preview 
+{
+	position: relative;
+	display: inline-block;
+	width: 120px;
+	margin: 0.5em; 
+}
+.dropzone .dz-preview .dz-progress 
+{
+  display: block;
+  height: 15px;
+  border: 1px solid #aaa; 
+}
+.dropzone .dz-preview .dz-progress .dz-upload 
+{
+    display: block;
+    height: 100%;
+    width: 0;
+    background: green; 
+}
+.dropzone .dz-preview .dz-error-message 
+{
+  color: red;
+  display: none!important; 
+}
+.dz-progress
+{
+	display: none!important; 
+}
+.dropzone .dz-preview.dz-error .dz-error-message, .dropzone .dz-preview.dz-error .dz-error-mark 
+{
+  display: block; 
+}
+.dropzone .dz-preview.dz-success .dz-success-mark 
+{
+  display: block; 
+}
+.dropzone .dz-preview .dz-error-mark, .dropzone .dz-preview .dz-success-mark 
+{
+  position: absolute;
+  display: none;
+  left: 30px;
+  top: 30px;
+  width: 54px;
+  height: 58px;
+  left: 50%;
+  margin-left: -27px; 
+}
+.dz-image img
+{
+	border-radius: 13px;
+}
+
+.dz-image:hover
+{
+	filter: blur(2px); 
+	-webkit-filter: blur(2px); 
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px); 
+	-ms-filter: blur(2px);
+	filter: url(blur.svg#blur);
+	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+}
+
+.dz-message
+{
+	font-size:15px;
+	font-weight:bold;
+}
