@@ -18,14 +18,10 @@
         <link rel="stylesheet" href="{{url_for('static',filename='new-blog-css/main.css')}}">
         <link rel="stylesheet" href="{{url_for('static',filename='new-blog-css/new-blog.css')}}">
         <link rel="stylesheet" href="{{url_for('static',filename='new-blog-css/landing.css')}}">
-        <script src="new-blog-js/modernizr-2.8.3.min.js"></script>
+        <script src="{{url_for('static',filename='new-blog-js/modernizr-2.8.3.min.js')}}"></script>
        
 	</head>
     <body>
-	
-	
-
-      
         
 		<div class="wrapper" id="wrapper">
 			<div class="container">
@@ -39,7 +35,7 @@
                     </div>
                     <div class="part">
                        
-                      <form action="" class="title-img-upload" style="display: "none;>
+                      <form action="" class="title-img-upload" style="display:none">
                         <input type="file" name="pic" accept="">
                         <span>Add Title Image</span>
                       </form>
@@ -101,12 +97,12 @@
 		</div>
 		
 		<!--script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script-->
-        <script>window.jQuery || document.write('<script src="new-blog-js/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="new-blog-js/plugins.js"></script>
-        <script src="new-blog-js/dropzone.js"></script>
-        <script src="new-blog-js/dropzone.min.js"></script>
-        <script src="https://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
-        <script src="new-blog-js/main.js"></script>
+        <script>window.jQuery || document.write('<script src="{{url_for('static',filename='new-blog-js/jquery-1.11.2.min.js')}}"><\/script>')</script>
+        <script src="{{url_for('static',filename='new-blog-js/plugins.js')}}"></script>
+        <script src="{{url_for('static',filename='new-blog-js/dropzone.js')}}"></script>
+        <script src="{{url_for('static',filename='new-blog-js/dropzone.min.js')}}"></script>
+        <script src=" //cdn.tinymce.com/4/tinymce.min.js"></script>
+        <script src="{{url_for('static',filename='new-blog-js/main.js')}}"></script>
 		    <script type="text/javascript">
           tinymce.init({
               selector: "textarea",
