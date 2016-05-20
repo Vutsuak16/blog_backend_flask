@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <body>
+    <meta charset="UTF-8">
+    <title>ADD POST</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/blog.min.css') }}" />
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/hilite.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <form action="/write_blog" class="form-horizontal" method="post" style="margin-left: 35px ;margin-top: 15px">
+    <div class="form-group col-sm-10" >
+      <label for="title" class=" col-sm-10 ">Title</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="title" name="title" type="text" >
+      </div>
+    </div>
+
+    <div class="form-group col-sm-10" style="margin-left:2px">
+                        <input type="file" name="pic" accept="">
+                        <span>Add Title Image</span>
+                      </div>
+      <div class="col-sm-10">
+        <textarea class="form-control" id="content"  name="content"  style="height: auto"type="text"></textarea>
+
+      </div>
+        <div class="col-sm-10">
+                      <h3>Categories</h3>
+                      <select class="form-control input-sm mb15" name="option">
+                        <option>life</option>
+                        <option>travel</option>
+                        <option>tech</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-10">
+                      <h3>Tags</h3>
+                      <input type="text" placeholder="Tags here please" name="tags" class="form-control">
+                    </div>
+    </div>
+    <div class="form-group" style="margin-left: 1.5px">
+      <div class="col-sm-10" >
+        <div class="checkbox" >
+          <label>
+            <input name="published" type="checkbox" value="y"> Published?
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" style="margin-left: 2px" >
+      <div class="col-sm-10" style="margin-left: 2px" >
+        <button class="btn btn-primary" type="submit">Create</button>
+        <a class="btn btn-default" href="/write_blog">Cancel</a>
+      </div>
+    </div>
+  </form>
+       <script src=" //cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+    tinymce.init({
+              selector: "textarea",
+              theme: "modern",
+              plugins: [
+                  "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                  "searchreplace wordcount visualblocks visualchars code fullscreen",
+                  "insertdatetime media nonbreaking save table contextmenu directionality",
+                  "emoticons template paste textcolor colorpicker textpattern imagetools"
+              ],
+              toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+              toolbar2: "print preview media | forecolor backcolor emoticons",
+              image_advtab: true,
+              templates: [
+                  {title: 'Test template 1', content: 'Test 1'},
+                  {title: 'Test template 2', content: 'Test 2'}
+              ],
+              file_browser_callback : 'myFileBrowser'
+          });
+    </script>
+</head>
+
+</body>
+</html>
