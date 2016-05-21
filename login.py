@@ -1,10 +1,10 @@
 from flask import Flask, Response, redirect, url_for, request, session, abort, render_template
 from flask.ext.login import LoginManager, UserMixin, \
-    login_required, login_user, logout_user
-
-import unicodedata, re
-import BeautifulSoup as bs4
+    login_required, login_user, logout_user, session
+import re
+from PIL import Image as pimg
 import sqlite3 as sql
+import time
 
 app = Flask(__name__)
 
@@ -18,6 +18,25 @@ app.config.update(
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
+from HTMLParser import HTMLParser
+
+
+class MLStripper(HTMLParser):
+    def __init__(self):
+        self.reset()
+        self.fed = []
+
+    def handle_data(self, d):
+        self.fed.append(d)
+
+    def get_data(self):
+        return ''.join(self.fed)
+
+
+def strip_tags(html):
+    s = MLStripper()
+    s.feed(html)
+    return s.get_data()
 
 
 # silly user model
@@ -49,6 +68,7 @@ def home():
 def login():
     if request.method == 'POST':
         username = request.form['username']
+        session["username"] = username
         password = request.form['password']
         if username in name and password in passwd:
             if name.index(username) == passwd.index(password):
@@ -94,31 +114,40 @@ def load_user(userid):
 @app.route("/write_blog", methods=['GET', 'POST'])
 @login_required
 def write_blog():
+    con = sql.connect('C:\Users\windows 7\Desktop\Blogs_time_being.db')
     if request.method == "GET":
+
         return render_template('simple_edit.html')
     else:
 
         title = request.form["title"]
         Content = request.form["content"]
-
+        author = session["username"]
         option = request.form["option"]
+        Date = time.strftime("%x")
         tags = request.form["tags"]
-        con = sql.connect('C:\Users\windows 7\Desktop\Blogs_time_being.db')
+        pic = request.form["pic"]
+        newImg1 = pimg.new('RGB', (940,400))
+        newImg1.save("static/img/"+pic)
+        pic="static/img/"+pic
         cur = con.cursor()
 
-        print title
-        #  Content=re.sub("<p[^>]*>", "", Content)
-        #   Content=re.sub("</p[^>]*>", "", Content)
-        cur.execute(
-            "CREATE TABLE %s(TITLE TEXT NOT NULL,CONTENT  TEXT NOT NULL,OPTION TEXT NOT NULL,TAGS TEXT NOT NULL);"%title)
-        print "table %s created succesfully"%title
-        cur.execute("INSERT  INTO %s (TITLE,CONTENT,OPTION,TAGS) VALUES (?,?,?,?)"%title, (title, Content, option, tags))
-        con.commit()
-        msg = "recorded successfully"
+        # Content=re.sub("<p[^>]*>", "", Content)
+        # Content=re.sub("</p[^>]*>", "", Content)
+        Content = strip_tags(Content)
 
+        cur.execute("INSERT  INTO bloooogs (AUTHOR,DATE,TITLE,CONTENT,OPTION,TAGS,IMAGE_URL) VALUES (?,?,?,?,?,?,?)",
+                    (author, Date, title, Content, option, tags, pic))
+        con.commit()
+
+        print title
+        print Date
+        print author
         print Content
         print option
         print tags
+        print pic
+
         return redirect('/write_blog')
 
 

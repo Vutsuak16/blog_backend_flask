@@ -37,10 +37,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script>var today = new Date();
+document.getElementById('time').innerHTML=today;</script>
 </head>
 
 <body>
+
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -85,70 +87,31 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+
+                <hr>
                 <div class="post-preview ">
+                    {%if posts %}
                     <a href="post.html">
-                        <img width="940" height="400" src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Resturant-Employer-940x400.jpg" class="img-responsive wp-post-image img-rounded" alt="Resturant-Employer">
+                        {% for row in posts %}
+                        <div>
+
+                        <img width="940" height="400" src={{ row[:][-1] }}></img>
+
                         <h2 class="post-title">
-                           Restaurant Employer Read Clients Orders On His iPad
+                           {{row[:][2]}}
                         </h2>
                         <div class="blog_post_meta clearfix">
-                    <span class="blog_meta_item blog_meta_format entry_format"><a href="https://ahmad.works/writing/type/image/"><i class="fa fa-camera-retro"></i></a></span><span class="blog_meta_item blog_meta_category">In <a href="https://ahmad.works/writing/category/life-style/" rel="category tag">Life Style</a>,
-                     <time class="entry-date published" datetime="2015-05-17T14:47:11+00:00">May 17, 2015</time></span><span class="blog_meta_item blog_meta_comments"><a href="https://ahmad.works/writing/english-breakfast-tea-with-tasty-donut-desserts/#respond">Leave a comment</a></span><span class="blog_meta_item blog_meta_author"><span class="author vcard"><a class="meta_author_avatar_url" href="https://ahmad.works/writing/author/ahmad/"><img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Author-150x150.jpg" width="25" height="25" alt="John Doe" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo"></a> <a class="url fn n" href="https://ahmad.works/writing/author/ahmad/">John Doe</a></span></span>               </div>
+                    <span class="blog_meta_item blog_meta_format entry_format"><a href="https://ahmad.works/writing/type/image/"><i class="fa fa-camera-retro"></i></a></span><span class="blog_meta_item blog_meta_category">In <a href="https://ahmad.works/writing/category/life-style/" rel="category tag">{{ row[:][5] }}</a>,
+                     <time class="entry-date published" >{{ row[:][1] }}</time></span><span class="blog_meta_item blog_meta_comments"><a href="/full_blog">Leave a comment</a></span><span class="blog_meta_item blog_meta_author"><span class="author vcard"><a class="meta_author_avatar_url" href="https://ahmad.works/writing/author/ahmad/"><img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Author-150x150.jpg" width="25" height="25" alt="John Doe" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo"></a> <a class="url fn n" href="https://ahmad.works/writing/author/ahmad/">{{ row[:][0] }}</a></span></span>               </div>
                         <p class="post-subtitle">
-                          It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least. So, this article looks at …
+                            {{ row[:][3] }}
                         </p>
-                      
+                            </div>
+                        {% endfor %}
 
                     </a>
-                    
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <img width="940" height="400" src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Modern-Enterior-Design-940x400.jpg" class="img-responsive wp-post-image img-rounded" alt="Modern-Enterior-Design">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Amazing Classic Interior Design With Perfect Lighting
-                        </h2>
-                     <div class="blog_post_meta 
-                    clearfix">
-                    <span class="blog_meta_item blog_meta_format entry_format"><a href="https://ahmad.works/writing/type/image/"><i class="fa fa-camera-retro"></i></a></span><span class="blog_meta_item blog_meta_category">In <a href="https://ahmad.works/writing/category/life-style/" rel="category tag">Life Style</a>,
-                     <time class="entry-date published" datetime="2015-05-17T14:47:11+00:00">May 17, 2015</time></span><span class="blog_meta_item blog_meta_comments"><a href="https://ahmad.works/writing/english-breakfast-tea-with-tasty-donut-desserts/#respond">Leave a comment</a></span><span class="blog_meta_item blog_meta_author"><span class="author vcard"><a class="meta_author_avatar_url" href="https://ahmad.works/writing/author/ahmad/"><img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Author-150x150.jpg" width="25" height="25" alt="John Doe" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo"></a> <a class="url fn n" href="https://ahmad.works/writing/author/ahmad/">John Doe</a></span></span>               </div>
-                     </a>
-                  <p class="post-subtitle">
-                       It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least.  So, this article looks at …
-                        </p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <img width="940" height="400" src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Desserts-940x400.jpg" class="img-responsive wp-post-image img-rounded" alt="Desserts">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                           English Breakfast Tea With Tasty Donut Desserts
-                        </h2>
-                         <div class="blog_post_meta clearfix">
-                    <span class="blog_meta_item blog_meta_format entry_format"><a href="https://ahmad.works/writing/type/image/"><i class="fa fa-camera-retro"></i></a></span><span class="blog_meta_item blog_meta_category">In <a href="https://ahmad.works/writing/category/life-style/" rel="category tag">Life Style</a>,
-                     <time class="entry-date published" datetime="2015-05-17T14:47:11+00:00">May 17, 2015</time></span><span class="blog_meta_item blog_meta_comments"><a href="https://ahmad.works/writing/english-breakfast-tea-with-tasty-donut-desserts/#respond">Leave a comment</a></span><span class="blog_meta_item blog_meta_author"><span class="author vcard"><a class="meta_author_avatar_url" href="https://ahmad.works/writing/author/ahmad/"><img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Author-150x150.jpg" width="25" height="25" alt="John Doe" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo"></a> <a class="url fn n" href="https://ahmad.works/writing/author/ahmad/">John Doe</a></span></span>               </div>
-                        <p class="post-subtitle">
-                           It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least.  So, this article looks at …
-                        </p>
-                    </a>
-                   
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <img class="img-responsive img-rounded" alt="Brother-and-Sister" src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Brother-and-Sister-940x400.jpg">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                           Two Smart Kids Reading Magazine Before Sleeping
-                        </h2>
-                         <div class="blog_post_meta clearfix">
-                    <span class="blog_meta_item blog_meta_format entry_format"><a href="https://ahmad.works/writing/type/image/"><i class="fa fa-camera-retro"></i></a></span><span class="blog_meta_item blog_meta_category">In <a href="https://ahmad.works/writing/category/life-style/" rel="category tag">Life Style</a>,
-                     <time class="entry-date published" datetime="2015-05-17T14:47:11+00:00">May 17, 2015</time></span><span class="blog_meta_item blog_meta_comments"><a href="https://ahmad.works/writing/english-breakfast-tea-with-tasty-donut-desserts/#respond">Leave a comment</a></span><span class="blog_meta_item blog_meta_author"><span class="author vcard"><a class="meta_author_avatar_url" href="https://ahmad.works/writing/author/ahmad/"><img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Author-150x150.jpg" width="25" height="25" alt="John Doe" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo"></a> <a class="url fn n" href="https://ahmad.works/writing/author/ahmad/">John Doe</a></span></span>               </div>
-                        <p class="post-subtitle">
-                          It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least.  So, this article looks at …
-                        </p>
-                    </a>
-                   
+                    {% endif %}
+
                 </div>
                 <hr>
                 <!-- Pager -->
