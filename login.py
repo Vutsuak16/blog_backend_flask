@@ -110,8 +110,9 @@ def write_blog():
         #  Content=re.sub("<p[^>]*>", "", Content)
         #   Content=re.sub("</p[^>]*>", "", Content)
         cur.execute(
-            "CREATE TABLE title(TITLE TEXT NOT NULL,CONTENT  TEXT NOT NULL,OPTION TEXT NOT NULL,TAGS TEXT NOT NULL);")
-        cur.execute("INSERT  INTO title (TITLE,CONTENT,OPTION,TAGS) VALUES (?,?,?,?)", (title, Content, option, tags))
+            "CREATE TABLE %s(TITLE TEXT NOT NULL,CONTENT  TEXT NOT NULL,OPTION TEXT NOT NULL,TAGS TEXT NOT NULL);"%title)
+        print "table %s created succesfully"%title
+        cur.execute("INSERT  INTO %s (TITLE,CONTENT,OPTION,TAGS) VALUES (?,?,?,?)"%title, (title, Content, option, tags))
         con.commit()
         msg = "recorded successfully"
 
