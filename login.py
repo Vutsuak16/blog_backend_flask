@@ -119,7 +119,7 @@ def write_blog():
 
         return render_template('simple_edit.html')
     else:
-
+        UPLOAD_FOLDER = '/static/img'
         title = request.form["title"]
         Content = request.form["content"]
         author = session["username"]
@@ -128,8 +128,8 @@ def write_blog():
         tags = request.form["tags"]
         pic = request.form["pic"]
         newImg1 = pimg.new('RGB', (940,400))
-        newImg1.save("static/img/"+pic)
-        pic="static/img/"+pic
+        newImg1.save("static/img/" + pic)
+        pic = "static/img/" + pic
         cur = con.cursor()
 
         # Content=re.sub("<p[^>]*>", "", Content)
@@ -146,7 +146,7 @@ def write_blog():
         print Content
         print option
         print tags
-        print pic
+        print type(pic)
 
         return redirect('/write_blog')
 
