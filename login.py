@@ -2,7 +2,7 @@ from flask import Flask, Response, redirect, url_for, request, session, abort, r
 from flask.ext.login import LoginManager, UserMixin, \
     login_required, login_user, logout_user, session
 import re
-from PIL import Image as pimg
+import os
 import sqlite3 as sql
 import time
 
@@ -13,6 +13,8 @@ app.config.update(
     DEBUG=True,
     SECRET_KEY='secret_xxx'
 )
+UPLOAD_FOLDER = 'static/img/'
+
 
 # flask-login
 login_manager = LoginManager()
@@ -116,28 +118,27 @@ def load_user(userid):
 def write_blog():
     con = sql.connect('C:\Users\windows 7\Desktop\Blogs_time_being.db')
     if request.method == "GET":
-
         return render_template('simple_edit.html')
     else:
-        UPLOAD_FOLDER = '/static/img'
+
         title = request.form["title"]
         Content = request.form["content"]
         author = session["username"]
         option = request.form["option"]
         Date = time.strftime("%x")
         tags = request.form["tags"]
-        pic = request.form["pic"]
-        newImg1 = pimg.new('RGB', (940,400))
-        newImg1.save("static/img/" + pic)
-        pic = "static/img/" + pic
+        file = request.files['pic']
+        path=os.path.join(UPLOAD_FOLDER,file.filename)
+        file.save(path)
+
         cur = con.cursor()
 
         # Content=re.sub("<p[^>]*>", "", Content)
         # Content=re.sub("</p[^>]*>", "", Content)
-        Content = strip_tags(Content)
+        #Content = strip_tags(Content)
 
         cur.execute("INSERT  INTO bloooogs (AUTHOR,DATE,TITLE,CONTENT,OPTION,TAGS,IMAGE_URL) VALUES (?,?,?,?,?,?,?)",
-                    (author, Date, title, Content, option, tags, pic))
+                    (author, Date, title, Content, option, tags, path))
         con.commit()
 
         print title
@@ -146,7 +147,7 @@ def write_blog():
         print Content
         print option
         print tags
-        print type(pic)
+        print path
 
         return redirect('/write_blog')
 
