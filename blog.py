@@ -19,35 +19,20 @@ def home():
 def blog():
     con = sql.connect('C:\Users\windows 7\Desktop\Blogs_time_being.db')
     cur=con.cursor()
-    cur.execute("select * from bloooogs")
+    cur.execute("select * from blOOgs")
     p=cur.fetchall()
     return render_template('index.html',posts=p)
 
 
-@app.route("/full_blog", methods=["GET", "POST"])
-def full_blog():
-    if request.method=="GET":
-        return render_template('full_blog.html')
-    else:
-        con = sql.connect('C:\Users\windows 7\Desktop\contacts_ahmad.db')
+@app.route("/full_blog/<int:post_id>", methods=["GET", "POST"])
+def full_blog(post_id):
+    con = sql.connect('C:\Users\windows 7\Desktop\Blogs_time_being.db')
+    cur=con.cursor()
+    cur.execute("select * from blOOgs WHERE ID=%d"%post_id)
+    p=cur.fetchall()
+    print request.data
+    return render_template('full_blog.html',posts=p[0])
 
-        author = request.form["author"]
-        email = request.form["email"]
-        website = request.form["url"]
-        comment = request.form["comment"]
-
-        print author
-        print email
-        print website
-        print comment
-        '''cur = con.cursor()
-        cur.execute(
-            "CREATE TABLE %s(AUTHOR TEXT NOT NULL,EMAIL  TEXT NOT NULL,WEBSITE TEXT NOT NULL,COMMENT TEXT NOT NULL);"%author)
-        print "table %s created succesfully"%author
-        cur.execute("INSERT  INTO %s (AUTHOR,EMAIL,WEBSITE,COMMENT) VALUES (?,?,?,?)"%author, (author, email, website, comment))
-        msg = "recorded successfully"
-        con.commit()'''
-        return redirect('/full_blog')
 
 
 

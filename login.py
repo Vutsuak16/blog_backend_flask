@@ -116,6 +116,7 @@ def load_user(userid):
 @app.route("/write_blog", methods=['GET', 'POST'])
 @login_required
 def write_blog():
+
     con = sql.connect('C:\Users\windows 7\Desktop\Blogs_time_being.db')
     if request.method == "GET":
         return render_template('simple_edit.html')
@@ -137,7 +138,7 @@ def write_blog():
         # Content=re.sub("</p[^>]*>", "", Content)
         #Content = strip_tags(Content)
 
-        cur.execute("INSERT  INTO bloooogs (AUTHOR,DATE,TITLE,CONTENT,OPTION,TAGS,IMAGE_URL) VALUES (?,?,?,?,?,?,?)",
+        cur.execute("INSERT  INTO blOOgs (AUTHOR,DATE,TITLE,CONTENT,OPTION,TAGS,IMAGE_URL) VALUES (?,?,?,?,?,?,?)",
                     (author, Date, title, Content, option, tags, path))
         con.commit()
 
