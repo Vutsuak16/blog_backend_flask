@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="{{url_for('static',filename='css/bootstrap.min.css" rel="stylesheet')}}">
+     <link href="{{url_for('static',filename='css/bootstrap.css" rel="stylesheet')}}">
     <link rel='stylesheet' id='contact-form-7-css'  href='https://awcdn1.ahmad.works/writing/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=0c44a9be1518c153a8917c83f63434bd' type='text/css' media='all' />
 <link rel='stylesheet' id='asalah-podkova-css'  href='https://fonts.googleapis.com/css?family=Podkova%3A700&#038;ver=0c44a9be1518c153a8917c83f63434bd' type='text/css' media='all' />
 <link rel='stylesheet' id='asalah-rokkit-css'  href='https://fonts.googleapis.com/css?family=Rokkitt%3A400%2C700&#038;ver=0c44a9be1518c153a8917c83f63434bd' type='text/css' media='all' />
@@ -96,18 +97,39 @@ document.getElementById('time').innerHTML=today;</script>
                             <a href="/full_blog/{{row[:][-1] }}">
                         <div>
 
-                        <img  src={{ row[:][-2] }} >
+                        <img  src={{ row[:][-2] }} class="img-rounded" >
 
 
-                        <h2 class="post-title" name="Title">
+                        <h2 class="post-title" name="Title" style="margin-top:25px">
                            {{row[:][2]}}
                         </h2>
                         <div class="blog_post_meta clearfix">
                     <span class="blog_meta_item blog_meta_format entry_format"><a href="https://ahmad.works/writing/type/image/"><i class="fa fa-camera-retro"></i></a></span><span class="blog_meta_item blog_meta_category">In <a href="https://ahmad.works/writing/category/life-style/" rel="category tag">{{ row[:][4] }}</a>,
                      <time class="entry-date published" >{{ row[:][1] }}</time></span><span class="blog_meta_item blog_meta_comments"><a href="/full_blog/{{row[:][-1] }}">Leave a comment</a></span><span class="blog_meta_item blog_meta_author"><span class="author vcard"><a class="meta_author_avatar_url" href="https://ahmad.works/writing/author/ahmad/"><img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Author-150x150.jpg" width="25" height="25" alt="John Doe" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo"></a> <a class="url fn n" href="https://ahmad.works/writing/author/ahmad/">{{ row[:][0] }}</a></span></span> </div>
 
-                            {{ row[:][3][0:250]|safe }}
-                            <div class="blog_post_control clearfix">
+                            {{ row[:][3][0:500]|safe }}
+
+                            <div class="blog_post_control clearfix" style="margin-bottom: 25px">
+
+
+																																															                  <div class="blog_post_control_item blog_post_readmore">
+                      <a href="/full_blog/{{ row[:][-1] }}" class="read_more_link">Continue Reading</a>                  </div>
+
+										        <div class="blog_post_control_item blog_post_share">
+        	<span class="share_item share_sign"><i class="fa fa-share "></i></span>
+        	<span class="social_share_item_wrapper"><a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=https://ahmad.works/writing/amazing-classic-interior-design-with-perfect-lighting/" class="share_item share_item_social share_facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://ahmad.works/writing/amazing-classic-interior-design-with-perfect-lighting/', 'facebook-share-dialog', 'width=626,height=436');
+                                return false;"><i class="fa fa-facebook"></i></a></span>
+
+        	<span class="social_share_item_wrapper"><a rel="nofollow" href="https://twitter.com/share?url=https://ahmad.works/writing/amazing-classic-interior-design-with-perfect-lighting/" target="_blank" class="share_item share_item_social share_twitter"><i class="fa fa-twitter"></i></a></span>
+
+        	<span class="social_share_item_wrapper"><a rel="nofollow" href="https://plus.google.com/share?url=https://ahmad.works/writing/amazing-classic-interior-design-with-perfect-lighting/" onclick="javascript:window.open(this.href,
+                                        '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+                                return false;" class="share_item share_item_social share_googleplus"><i class="fa fa-google-plus"></i></a></span>
+
+        	<span class="social_share_item_wrapper"><a rel="nofollow" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://ahmad.works/writing/amazing-classic-interior-design-with-perfect-lighting/" target="_blank" class="share_item share_item_social share_linkedin"><i class="fa fa-linkedin"></i></a></span>
+
+        	<span class="social_share_item_wrapper"><a rel="nofollow" href="https://www.pinterest.com/pin/create/button/?url=https://ahmad.works/writing/amazing-classic-interior-design-with-perfect-lighting/&amp;media=https://ahmad.works/writing/wp-content/uploads/2015/05/Modern-Enterior-Design.jpg&amp;description=Amazing%20Classic%20Interior%20Design%20With%20Perfect%20Lighting" class="share_item share_item_social share_pinterest" target="_blank"><i class="fa fa-pinterest"></i></a></span>
+        </div>
 
 																																															                  <div class="blog_post_control_item blog_post_readmore">
                                      </div>
@@ -116,10 +138,10 @@ document.getElementById('time').innerHTML=today;</script>
         									</div>
                             </div>
                              </a>
+
                         {% endfor %}
                     {% endif %}
 
-                </div>
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
