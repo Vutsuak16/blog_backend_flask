@@ -92,11 +92,11 @@ document.getElementById('time').innerHTML=today;</script>
                 <div class="post-preview ">
                     {%if posts %}
 
-                        {% for row in posts %}
+                        {% for row in posts[::-1] %}
                             <a href="/full_blog/{{row[:][-1] }}">
                         <div>
 
-                        <img  src={{ row[:][-2] }}>
+                        <img  src={{ row[:][-2] }} >
 
 
                         <h2 class="post-title" name="Title">
@@ -104,10 +104,16 @@ document.getElementById('time').innerHTML=today;</script>
                         </h2>
                         <div class="blog_post_meta clearfix">
                     <span class="blog_meta_item blog_meta_format entry_format"><a href="https://ahmad.works/writing/type/image/"><i class="fa fa-camera-retro"></i></a></span><span class="blog_meta_item blog_meta_category">In <a href="https://ahmad.works/writing/category/life-style/" rel="category tag">{{ row[:][4] }}</a>,
-                     <time class="entry-date published" >{{ row[:][1] }}</time></span><span class="blog_meta_item blog_meta_comments"><a href="/full_blog">Leave a comment</a></span><span class="blog_meta_item blog_meta_author"><span class="author vcard"><a class="meta_author_avatar_url" href="https://ahmad.works/writing/author/ahmad/"><img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Author-150x150.jpg" width="25" height="25" alt="John Doe" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo"></a> <a class="url fn n" href="https://ahmad.works/writing/author/ahmad/">{{ row[:][0] }}</a></span></span> </div>
-                        <p class="post-subtitle">
+                     <time class="entry-date published" >{{ row[:][1] }}</time></span><span class="blog_meta_item blog_meta_comments"><a href="/full_blog/{{row[:][-1] }}">Leave a comment</a></span><span class="blog_meta_item blog_meta_author"><span class="author vcard"><a class="meta_author_avatar_url" href="https://ahmad.works/writing/author/ahmad/"><img src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/Author-150x150.jpg" width="25" height="25" alt="John Doe" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo"></a> <a class="url fn n" href="https://ahmad.works/writing/author/ahmad/">{{ row[:][0] }}</a></span></span> </div>
+
                             {{ row[:][3][0:250]|safe }}
-                        </p>
+                            <div class="blog_post_control clearfix">
+
+																																															                  <div class="blog_post_control_item blog_post_readmore">
+                                     </div>
+
+
+        									</div>
                             </div>
                              </a>
                         {% endfor %}
